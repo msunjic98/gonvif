@@ -8,7 +8,7 @@ import (
 	"github.com/beevik/guid"
 )
 
-func generateRequestBuffer() []byte {
+func GenerateRequestBuffer() []byte {
 	g := guid.New().String()
 	messageID := "urn:uuid:" + g
 	request := []byte(`
@@ -28,7 +28,7 @@ func generateRequestBuffer() []byte {
 	return request
 }
 
-func sendBufferToUDP(request []byte) {
+func SendBufferToUDP(request []byte) {
 	conn, err := net.Dial("udp", "239.255.255.250:3702")
 	if err != nil {
 		fmt.Printf("error %v", err)
